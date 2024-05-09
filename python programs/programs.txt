@@ -1,0 +1,457 @@
+1. write a python program to find the second largest number in a list                                   Output:
+
+def find_second_largest(arr):                                                                           Second largest element is: 45
+    mx = max(arr[0], arr[1])                                                                    
+    second_max = min(arr[0], arr[1])
+    for i in range(2, len(arr)):
+        if arr[i] > mx:
+            second_max = mx
+            mx = arr[i]
+        elif arr[i] > second_max and mx != arr[i]:
+            second_max = arr[i]
+    return second_max
+
+my_list = [10, 20, 4, 45, 99]
+print("Second largest element is:", find_second_largest(my_list))
+
+2. write a python program to remove duplicates in the list                                             
+
+def remove_duplicates(user_list):
+    unique_list = []
+    for item in user_list:
+        if item not in unique_list:
+            unique_list.append(item)
+    return unique_list
+
+def main():
+    try:
+        n = int(input("Enter the number of elements in the list: "))
+        user_list = []
+        for i in range(n):
+            element = int(input(f"Enter element {i + 1}: "))
+            user_list.append(element)
+
+        result = remove_duplicates(user_list)
+        print("List with duplicates removed:", result)
+    except ValueError:
+        print("Invalid input. Please enter valid integers.")
+
+if __name__ == "__main__":
+    main()
+
+
+Output:
+Enter the number of elements in the list: 7
+Enter element 1: 1
+Enter element 2: 1
+Enter element 3: 2
+Enter element 4: 3
+Enter element 5: 3
+Enter element 6: 5
+Enter element 7: 5
+List with duplicates removed: [1, 2, 3, 5]
+
+3. Write a program to print Hello World!
+
+print(Hellow World!)
+
+Output:
+
+Hellow World!
+
+4. Write a program to find the sum of all numbers in a list
+
+myList = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+print("The given list is:")
+print(myList)
+list_length=len(myList)
+sumOfElements=0
+for i in range(list_length):
+    sumOfElements=sumOfElements+myList[i]
+
+print("Sum of all the elements in the list is:", sumOfElements)
+
+Output:
+
+The given list is:
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+Sum of all the elements in the list is: 45
+
+4. Write a program to convert celsius to fahrenheit
+
+celsius = float(input("Enter the temperature in Celsius: "))
+fahrenheit = (celsius * 1.8) + 32
+print(f"The {celsius:.1f} degrees Celsius is equal to {fahrenheit:.1f} degrees Fahrenheit")
+
+Output:
+
+Enter the temperature in Celsius: 22
+The 22.0 degrees Celsius is equal to 71.6 degrees Fahrenheit
+
+5. Write a program that counts the number of vowels in a string
+
+input_string = input('Enter the proverb: ')
+count = 0
+String = input_string.lower()
+
+for vowel in String:
+    if vowel == 'a' or vowel == 'e' or vowel == 'i' or vowel == 'o' or vowel == 'u':
+        count += 1
+
+if count == 0:
+    print('No vowels found')
+else:
+    print('Total number of vowels in the proverb: ' + str(count))
+
+Output:
+
+Enter the proverb: [a,s h,i,k,o]
+Total number of vowels in the proverb: 3
+
+6. Write a program to check if a given string contains any digits.
+
+def has_number(input_string):
+    # Check if a string contains any number
+    return any(char.isdigit() for char in input_string)
+
+user_input = input("Enter a string: ")
+result = has_number(user_input)
+print(f"Does the string contain any digit? {result}")
+
+Output:
+
+Enter a string: [q.w.3.4.r.5.t]
+Does the string contain any digit? True
+
+7. Write a program to calculate the least common multiple(LCM) of two numbers.
+
+def LCM(a, b):
+    greater = max(a, b)
+    smallest = min(a, b)
+    for i in range(greater, a * b + 1, greater):
+        if i % smallest == 0:
+            return i
+
+# Example usage:
+a = int(input("Enter the first number: "))
+b = int(input("Enter the second number: "))
+print(f"LCM of {a} and {b} is {LCM(a, b)}")
+
+Output:
+
+Enter the first number: 2
+Enter the second number: 5
+LCM of 2 and 5 is 10
+
+8. Write a program to generate a list of prime numbers upto a given limit.
+
+def is_prime(n):
+    """Check if a number is prime."""
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def generate_primes(limit):
+    """Generate a list of prime numbers up to the given limit."""
+    primes = []
+    for num in range(2, limit + 1):
+        if is_prime(num):
+            primes.append(num)
+    return primes
+
+# Example usage:
+given_limit = 100
+prime_numbers = generate_primes(given_limit)
+print(f"Prime numbers up to {given_limit} are: {prime_numbers}")
+
+Output:
+
+Prime numbers up to 100 are: [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+
+9. Write a program to calculate the square root of a number without using built-in function.
+
+def findSqrt(n):
+    sqrtNum = n / 2
+    temp = 0
+
+    while sqrtNum != temp:
+        temp = sqrtNum
+        sqrtNum = (n / temp + temp) / 2
+
+    return sqrtNum
+
+n = float(input("Enter the number: "))
+result = findSqrt(n)
+print(f"Square root of {n} is approximately {result:.6f}")
+
+Output:
+
+Enter the number: 9
+Square root of 9.0 is approximately 3.000000
+
+10. write a program to find the average of a list of numbers.
+
+def Average(lst):
+    return sum(lst) / len(lst)
+
+lst = [15, 9, 55, 41, 35, 20, 62, 49]
+average = Average(lst)
+print(f"Average of the list = {average:.2f}")
+
+Output:
+
+Average of the list = 35.75
+
+11. Write a program to calculate the standard deviation of a list of numbers.
+
+test_list = [4, 5, 8, 9, 10]
+
+# Calculate mean
+mean = sum(test_list) / len(test_list)
+
+# Calculate variance
+variance = sum([(x - mean) ** 2 for x in test_list]) / len(test_list)
+
+# Calculate standard deviation
+res = variance ** 0.5
+
+print(f"Standard deviation of the sample is: {res:.6f}")
+
+Output:
+
+Standard deviation of the sample is: 2.315167
+
+12. Write a program to determine if a given year is a leap year.
+
+def is_leap_year_modulo(year):
+    return (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
+
+year_to_check = int(input("Enter a year: "))
+result_modulo = is_leap_year_modulo(year_to_check)
+print(f"{year_to_check} is a leap year: {result_modulo}")
+
+Output:
+
+Enter a year: 2022
+2022 is a leap year: False
+
+13. Write a program to calculate the sum of the squares of numbers from 1 to n.
+
+def sum_of_squares_for_loop(end_number):
+    sum_of_squares = 0
+    for num in range(end_number + 1):
+        sum_of_squares += num ** 2
+    return sum_of_squares
+
+n = int(input("Enter a positive integer (n): "))
+result = sum_of_squares_for_loop(n)
+print(f"Sum of squares from 1 to {n} is: {result}")
+
+Output:
+
+Enter a positive integer (n): 22
+Sum of squares from 1 to 22 is: 3795
+
+14. Write a program to calculate the sum of a geometric series.
+
+import math
+
+a = int(input("Please enter the first term of the G.P. series: "))
+n = int(input("Please enter the total number of terms in the G.P. series: "))
+r = int(input("Please enter the common ratio: "))
+
+total = (a * (1 - math.pow(r, n))) / (1 - r)
+print("\nThe sum of the Geometric Progression Series = ", total)
+
+Output:
+
+Please enter the first term of the G.P. series: 2
+Please enter the total number of terms in the G.P. series: 5
+Please enter the common ratio: 7
+
+The sum of the Geometric Progression Series =  5602.0
+
+15. Write a program to generate the first n terms of an arithmetic series.
+
+a = int(input('Enter the first term: '))
+d = int(input('Enter the common difference: '))
+n = int(input('Enter the number of terms: '))
+
+for i in range(n):
+    term = a + i * d
+    print(f'Term {i+1}: {term}')
+
+Output:
+
+Enter the first term: 3
+Enter the common difference: 7
+Enter the number of terms: 8
+Term 1: 3
+Term 2: 10
+Term 3: 17
+Term 4: 24
+Term 5: 31
+Term 6: 38
+Term 7: 45
+Term 8: 52
+
+16. Write a program to count the frequency of each character in a given string.
+
+test_str = "Numbers"
+all_freq = {}
+for char in test_str:
+    if char in all_freq:
+        all_freq[char] += 1
+    else:
+        all_freq[char] = 1
+print("Count of all characters in Numbers:")
+print(all_freq)
+
+Output:
+
+Count of all characters in Numbers:
+{'N': 1, 'u': 1, 'm': 1, 'b': 1, 'e': 1, 'r': 1, 's': 1}
+
+17. Write a program to find and replace a specific word in a string.
+
+def replace_words(statement):
+    # Create a dictionary mapping the words to be replaced
+    word_mapping = {
+        "I": "You",
+        "I'm": "You're",
+        "My": "Your",
+        "Was": "Were",
+        "Our": "Your",
+        "me": "you"
+    }
+
+    # Iterate over the dictionary and replace words in the statement
+    for old_word, new_word in word_mapping.items():
+        statement = statement.replace(old_word, new_word)
+
+    # Add a question mark at the end if the statement doesn't end with punctuation
+    if statement[-1].isalpha():
+        statement += "?"
+
+    return statement
+
+# Get input from the user
+user_input = input("Enter a statement: ")
+result = replace_words(user_input)
+print("Replaced statement:", result)
+
+Output:
+
+Enter a statement: what is your name
+Replaced statement: what is your nayou?
+
+18. Write a program to find all substring of a given string.
+
+def get_all_substrings(test_str):
+    return [test_str[i: j] for i in range(len(test_str)) for j in range(i + 1, len(test_str) + 1)]
+
+my_string = "Number"
+substrings = get_all_substrings(my_string)
+print(substrings)
+
+Output:
+
+['N', 'Nu', 'Num', 'Numb', 'Numbe', 'Number', 'u', 'um', 'umb', 'umbe', 'umber', 'm', 'mb', 'mbe', 'mber', 'b', 'be', 'ber', 'e', 'er', 'r']
+
+19. Write a program to convert a given string to title case(where each word strats with a capital letter).
+
+def convert_to_title_case(input_string):
+    # Use the title() method to capitalize each word
+    title_case_string = input_string.title()
+    return title_case_string
+
+# Example usage:
+input_string = "hello world"
+result = convert_to_title_case(input_string)
+print(result)  
+
+Output:
+
+Hello World
+
+20. Write a program to determine if a string contains all the letters of the alphabet.
+
+def contains_all_alphabet_letters(s):
+    return s.isalpha()
+
+user_input = input("Enter a string: ")
+result = contains_all_alphabet_letters(user_input)
+print(f"The input string {'contains' if result else 'does not contain'} all alphabet letters.")
+
+Output:
+
+Enter a string: {n,u,m,b,e,r]
+The input string does not contain all alphabet letters.
+
+21. Write a program to count the occurences of a specific word in a given string.
+
+input_string = input("Enter a string: ")
+word_to_count = input("Enter the word to count: ")
+
+count = input_string.count(word_to_count)Write a program to find the longest
+print(f"The word '{word_to_count}' appears {count} times in the string.")
+
+Ouptut:
+
+Enter a string: [n,u,m,b,e,r]
+Enter the word to count: 3
+The word '3' appears 0 times in the string.
+
+22. Write a program to find the longest word in a given string.
+
+def find_longest_word(input_string):
+    words = input_string.split()
+    longest_word = ''
+
+    for word in words:
+        if len(word) > len(longest_word):
+            longest_word = word
+
+    return longest_word
+
+user_input = input("Enter a string: ")
+result = find_longest_word(user_input)
+
+print("Longest word:", result)
+
+Output:
+
+Enter a string: What is your name
+Longest word: What
+
+23. Write a program to reverse the words in a given string.
+
+def reverse_words(string):
+    words = string.split()  # Separate words using split()
+    reversed_string = ' '.join(reversed(words))  # Reverse the words and join them
+    return reversed_string
+
+input_string = input("Enter a string: ")
+result = reverse_words(input_string)
+print("Reversed string:", result)
+
+24. Write a program to convert a given string to snake-case.
+
+def change_case(s):
+    res = [s[0].lower()]
+    for c in s[1:]:
+        if c.isupper():
+            res.append('_')
+        res.append(c.lower())
+    return ''.join(res)
+
+# Example usage
+input_str = "Number"
+print(change_case(input_str))
+
+output:
+
+number
